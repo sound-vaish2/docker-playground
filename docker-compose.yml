@@ -1,0 +1,22 @@
+services:
+  playground:
+    image: YOUR_DOCKERHUB_USER/docker-playground:latest
+    container_name: docker-playground
+    privileged: true            # required so the container can run its own Docker daemon
+    ports:
+      - "7681:7681"             # browser terminal
+      - "8080-8089:8080-8089"   # apps you publish from inside the playground
+    volumes:
+      - playground-docker:/var/lib/docker   # keeps images/containers between restarts
+      - playground-work:/workspace          # keeps your files between restarts
+    # Optional: cap how much of your machine the playground may use
+    # mem_limit: 4g
+    # cpus: 2
+    # Optional: password protect the terminal
+    # environment:
+    #   TTYD_CREDENTIAL: "user:change-me"
+    restart: unless-stopped
+
+volumes:
+  playground-docker:
+  playground-work:

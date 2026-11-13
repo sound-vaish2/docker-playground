@@ -1,0 +1,8 @@
+============================================================
+  Docker Playground
+  Everything here is safe to break. Experiment freely.
+
+  lesson          list guided lessons
+  lesson 1        open lesson 1
+  docker run hello-world   -> quick sanity check
+============================================================
